@@ -5870,6 +5870,14 @@
               "type": "SYMBOL",
               "name": "identifier"
             }
+          },
+          {
+            "type": "PREC",
+            "value": -2,
+            "content": {
+              "type": "SYMBOL",
+              "name": "compiler_directive"
+            }
           }
         ]
       }

@@ -1007,6 +1007,7 @@ module.exports = grammar({
             $.polymorphic_type,
             $.member_type,
             prec(-2, $.identifier),
+            prec(-2, $.compiler_directive),
         )),
 
         member_type: $ => prec(-1, seq($.identifier, '.', $.identifier)),
