@@ -1007,7 +1007,6 @@ module.exports = grammar({
             $.polymorphic_type,
             $.member_type,
             prec(-2, $.identifier),
-            prec(-2, $.compiler_directive),
         )),
 
         member_type: $ => prec(-1, seq($.identifier, '.', $.identifier)),
@@ -1058,7 +1057,7 @@ module.exports = grammar({
         )),
 
         // TODO : Differentiate between taking the address of a variable and pointer types
-        pointer_type: $ => prec.left(PREC.CAST, seq('*', $.types)),
+        pointer_type: $ => prec.left(PREC.CAST, seq('*', choice($.types, $.compiler_directive))),
 
         array_type: $ => prec.left(seq(
             '[',

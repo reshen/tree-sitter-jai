@@ -5870,14 +5870,6 @@
               "type": "SYMBOL",
               "name": "identifier"
             }
-          },
-          {
-            "type": "PREC",
-            "value": -2,
-            "content": {
-              "type": "SYMBOL",
-              "name": "compiler_directive"
-            }
           }
         ]
       }
@@ -6142,8 +6134,17 @@
             "value": "*"
           },
           {
-            "type": "SYMBOL",
-            "name": "types"
+            "type": "CHOICE",
+            "members": [
+              {
+                "type": "SYMBOL",
+                "name": "types"
+              },
+              {
+                "type": "SYMBOL",
+                "name": "compiler_directive"
+              }
+            ]
           }
         ]
       }
