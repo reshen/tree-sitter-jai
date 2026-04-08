@@ -15,47 +15,47 @@ i9 :: 0x_67_7a_2f_cc_40_c6;
 --------------------------------------------------------------------------------
 
 (source_file
-	(top_level_declarations
+	(statement
 		(declarations_that_require_a_semicolon
 			(const_declaration
 				(identifier)
 				(integer))))
-	(top_level_declarations
+	(statement
 		(declarations_that_require_a_semicolon
 			(const_declaration
 				(identifier)
 				(integer))))
-	(top_level_declarations
+	(statement
 		(declarations_that_require_a_semicolon
 			(const_declaration
 				(identifier)
 				(integer))))
-	(top_level_declarations
+	(statement
 		(declarations_that_require_a_semicolon
 			(const_declaration
 				(identifier)
 				(integer))))
-	(top_level_declarations
+	(statement
 		(declarations_that_require_a_semicolon
 			(const_declaration
 				(identifier)
 				(integer))))
-	(top_level_declarations
+	(statement
 		(declarations_that_require_a_semicolon
 			(const_declaration
 				(identifier)
 				(integer))))
-	(top_level_declarations
+	(statement
 		(declarations_that_require_a_semicolon
 			(const_declaration
 				(identifier)
 				(integer))))
-	(top_level_declarations
+	(statement
 		(declarations_that_require_a_semicolon
 			(const_declaration
 				(identifier)
 				(integer))))
-	(top_level_declarations
+	(statement
 		(declarations_that_require_a_semicolon
 			(const_declaration
 				(identifier)
