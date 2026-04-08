@@ -6125,8 +6125,17 @@
             "value": "*"
           },
           {
-            "type": "SYMBOL",
-            "name": "types"
+            "type": "CHOICE",
+            "members": [
+              {
+                "type": "SYMBOL",
+                "name": "types"
+              },
+              {
+                "type": "SYMBOL",
+                "name": "compiler_directive"
+              }
+            ]
           }
         ]
       }

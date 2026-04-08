@@ -2264,6 +2264,10 @@
       "required": true,
       "types": [
         {
+          "type": "compiler_directive",
+          "named": true
+        },
+        {
           "type": "types",
           "named": true
         }
