@@ -25,14 +25,10 @@ static inline bool string_eq(String32 *self, String32 *other) {
 }
 
 typedef struct {
-    Array(String32) heredocs;
+     Array(String32) heredocs;
 } Scanner;
 
 typedef enum { ERROR, END } ScanContentResult;
-
-static inline void reset_heredoc(String32 *heredoc) {
-    array_delete(heredoc);
-}
 
 static inline void advance(TSLexer *lexer) { if (!lexer->eof(lexer)) lexer->advance(lexer, false); }
 static inline void    skip(TSLexer *lexer) { if (!lexer->eof(lexer)) lexer->advance(lexer, true);  }
@@ -165,7 +161,7 @@ bool tree_sitter_jai_external_scanner_scan(void *payload, TSLexer *lexer, const 
 
     if (valid_symbols[HEREDOC_END]) {
         lexer->result_symbol = HEREDOC_END;
-        if (scanner->heredocs.size == 0)
+        if (scanner->heredocs.size <= 0)
             return false;
 
         String32 heredoc = *array_back(&scanner->heredocs);
@@ -180,7 +176,9 @@ bool tree_sitter_jai_external_scanner_scan(void *payload, TSLexer *lexer, const 
         array_delete(&word);
 
         lexer->mark_end(lexer);
-        array_delete(&array_pop(&scanner->heredocs));
+        // array_delete(&array_pop(&scanner->heredocs));
+        String32 *to_delete = &array_pop(&scanner->heredocs);
+        array_delete(to_delete);
         return true;
     }
 
@@ -239,8 +237,11 @@ unsigned tree_sitter_jai_external_scanner_serialize(void *payload, char *buffer)
 void tree_sitter_jai_external_scanner_deserialize(void *payload, const char *buffer, unsigned length) {
     Scanner *scanner = (Scanner *)payload;
     unsigned size = 0;
-    for (uint32_t i = 0; i < scanner->heredocs.size; i++)
-        reset_heredoc(array_get(&scanner->heredocs, i));
+    for (uint32_t i = 0; i < scanner->heredocs.size; i++) {
+        String32 *heredoc = array_get(&scanner->heredocs, i);
+        array_delete(heredoc);
+    }
+    memset(&scanner->heredocs, 0, sizeof(scanner->heredocs));
 
     if (length == 0)
         return;
@@ -277,4 +278,3 @@ void tree_sitter_jai_external_scanner_destroy(void *payload) {
     array_delete(&scanner->heredocs);
     ts_free(scanner);
 }
-
