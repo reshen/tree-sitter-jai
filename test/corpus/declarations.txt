@@ -9,19 +9,19 @@ three, four, five :: 3, 4, 5;
 --------------------------------------------------------------------------------
 
 (source_file
-	(top_level_declarations
+	(statement
 		(declarations_that_require_a_semicolon
 			(const_declaration
 				(identifier)
 				(integer))))
-	(top_level_declarations
+	(statement
 		(declarations_that_require_a_semicolon
 			(const_declaration
 				(identifier)
 				(identifier)
 				(integer)
 				(integer))))
-	(top_level_declarations
+	(statement
 		(declarations_that_require_a_semicolon
 			(const_declaration
 				(identifier)
@@ -42,13 +42,13 @@ three, four, five :u32: 3, 4, 5;
 --------------------------------------------------------------------------------
 
 (source_file
-	(top_level_declarations
+	(statement
 		(declarations_that_require_a_semicolon
 			(const_declaration
 				(identifier)
 				(types (identifier))
 				(integer))))
-	(top_level_declarations
+	(statement
 		(declarations_that_require_a_semicolon
 			(const_declaration
 				(identifier)
@@ -56,7 +56,7 @@ three, four, five :u32: 3, 4, 5;
 				(types (identifier))
 				(integer)
 				(integer))))
-	(top_level_declarations
+	(statement
 		(declarations_that_require_a_semicolon
 			(const_declaration
 				(identifier)
@@ -85,7 +85,7 @@ test_proc3 :: () -> type, parameterized_struct_type(T), named_return := struct_l
 --------------------------------------------------------------------------------
 
 (source_file
-	(top_level_declarations
+	(statement
 		(procedure_declaration
 			(identifier)
 			(procedure
@@ -95,7 +95,7 @@ test_proc3 :: () -> type, parameterized_struct_type(T), named_return := struct_l
 						(identifier_type
 							(identifier)))))
 			(block)))
-	(top_level_declarations
+	(statement
 		(procedure_declaration
 			(identifier)
 			(procedure
@@ -114,7 +114,7 @@ test_proc3 :: () -> type, parameterized_struct_type(T), named_return := struct_l
 						(identifier_type
 							(identifier)))))
 			(block)))
-	(top_level_declarations
+	(statement
 		(procedure_declaration
 			(identifier)
 			(procedure
@@ -133,7 +133,7 @@ test_proc3 :: () -> type, parameterized_struct_type(T), named_return := struct_l
 								(identifier))
 							(identifier)))))
 			(block)))
-	(top_level_declarations
+	(statement
 		(procedure_declaration
 			(identifier)
 			(procedure
@@ -189,7 +189,7 @@ b := TestStruct2(69).{};
 --------------------------------------------------------------------------------
 
 (source_file
-	(top_level_declarations
+	(statement
 		(struct_declaration
 			(identifier)
 			(struct_or_union
@@ -233,7 +233,7 @@ b := TestStruct2(69).{};
 							(string
 								(string_contents
 									(string_content)))))))))
-	(top_level_declarations
+	(statement
 		(struct_declaration
 			(identifier)
 			(struct_or_union
@@ -273,13 +273,14 @@ b := TestStruct2(69).{};
 							(pointer_type
 								(types
 									(identifier)))))))))
-	(top_level_declarations
+	(statement)
+	(statement
 		(declarations_that_require_a_semicolon
 			(variable_declaration
 				(identifier)
 				(struct_literal
 					(identifier)))))
-	(top_level_declarations
+	(statement
 		(declarations_that_require_a_semicolon
 			(variable_declaration
 				(identifier)
