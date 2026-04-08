@@ -60,6 +60,7 @@ module.exports = grammar({
         [$.expressions, $.variable_declaration, $.const_declaration, $.assignment_statement, $.update_statement],
         [$.expressions, $.variable_declaration, $.const_declaration, $.assignment_statement],
         [$.polymorphic_type],
+        [$.call_expression],
 
         [$.member_expression, $.types, $.member_type, $.struct_literal, $.array_literal],
 
@@ -745,11 +746,10 @@ module.exports = grammar({
         call_expression: $ => prec.dynamic(PREC.CALL, seq(
             optional(field('modifier', 'inline')),
             field('function', choice(
-                choice(
-                    $.identifier,
-                    $.compiler_directive
-                ),
-                $.parenthesized_expression
+                $.identifier,
+                $.compiler_directive,
+                $.parenthesized_expression,
+                $.member_expression,
             )),
             $.assignment_parameters,
         )),
@@ -770,9 +770,7 @@ module.exports = grammar({
             )),
             '.',
             prec.left(choice(
-                $.member_expression,
                 $.identifier,
-                $.call_expression,
                 $.postfix_dereference,
             )),
         )),

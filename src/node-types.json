@@ -863,6 +863,7 @@
   {
     "type": "block_comment",
     "named": true,
+    "extra": true,
     "fields": {},
     "children": {
       "multiple": true,
@@ -929,6 +930,10 @@
           },
           {
             "type": "identifier",
+            "named": true
+          },
+          {
+            "type": "member_expression",
             "named": true
           },
           {
@@ -1086,6 +1091,7 @@
   {
     "type": "comment",
     "named": true,
+    "extra": true,
     "fields": {}
   },
   {
@@ -2257,10 +2263,6 @@
       "multiple": false,
       "required": true,
       "types": [
-        {
-          "type": "compiler_directive",
-          "named": true
-        },
         {
           "type": "types",
           "named": true
