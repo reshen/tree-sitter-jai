@@ -1,0 +1,33 @@
+================================================================================
+repeated syntax
+================================================================================
+
+t := Math.cos(30) + Math.cos(30) + Math.cos(30);
+
+--------------------------------------------------------------------------------
+
+(source_file
+  (statement
+    (declarations_that_require_a_semicolon
+      (variable_declaration
+        (identifier)
+        (binary_expression
+          (binary_expression
+            (call_expression
+              (member_expression
+                (identifier)
+                (identifier))
+              (assignment_parameters
+                (integer)))
+            (call_expression
+              (member_expression
+                (identifier)
+                (identifier))
+              (assignment_parameters
+                (integer))))
+          (call_expression
+            (member_expression
+              (identifier)
+              (identifier))
+            (assignment_parameters
+              (integer))))))))
